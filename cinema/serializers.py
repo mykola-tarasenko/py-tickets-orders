@@ -120,7 +120,11 @@ class TicketCreateSerializer(TicketSerializer):
 
     def validate(self, attrs):
         data = super(TicketCreateSerializer, self).validate(attrs)
-        Ticket.validate_seat(attrs["row"], attrs["seat"], attrs["movie_session"])
+        Ticket.validate_seat(
+            attrs["row"],
+            attrs["seat"],
+            attrs["movie_session"],
+        )
 
         return data
 
